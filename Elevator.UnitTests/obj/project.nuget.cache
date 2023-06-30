@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "zj5JxhwWE/ZdJoGRgMTH1LINiUi1IRTVZzj0mvTd0Wqgf1QH7i1WE3M5fOihrLcCaE8cGsA2mn6i2YaeGTXKXw==",
+  "success": true,
+  "projectFilePath": "D:\\Peter\\brij-backend-developer-challenge-solution\\Elevator.UnitTests\\Elevator.UnitTests.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\peterm\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\peterm\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
+    "C:\\Users\\peterm\\.nuget\\packages\\nunit\\3.13.3\\nunit.3.13.3.nupkg.sha512",
+    "C:\\Users\\peterm\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.16\\microsoft.windowsdesktop.app.ref.6.0.16.nupkg.sha512",
+    "C:\\Users\\peterm\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.16\\microsoft.netcore.app.ref.6.0.16.nupkg.sha512",
+    "C:\\Users\\peterm\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.16\\microsoft.aspnetcore.app.ref.6.0.16.nupkg.sha512"
+  ],
+  "logs": []
+}
