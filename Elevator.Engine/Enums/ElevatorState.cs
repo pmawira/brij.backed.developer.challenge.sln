@@ -15,6 +15,8 @@ namespace Elevator.Engine.Enums
         Moving,
         Stopped,
         Faulty,
-        Loading
+        Loading,
+        Closed,
+        Open
     }
 }

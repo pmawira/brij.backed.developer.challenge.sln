@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FeaGCiZTXz4GMr+AgAMZoKEmaoQS5A5tmgdXZT6KJIRaoOA05H1d9ta4xzKv6SFTh4FOat4JZ6R71EVDh9zk7Q==",
+  "dgSpecHash": "hTpx3ED/7NdFkekS+1y6CKJxrlRTZOJKNWNcxQtQXoRDcS/Mmf2sDxMBvH/wNJDtRFDAkCArj7sLIqlSKF1eZA==",
   "success": true,
-  "projectFilePath": "D:\\Peter\\brij-backend-developer-challenge-solution\\Elevator.Simulator\\Elevator.Simulator.csproj",
+  "projectFilePath": "D:\\CAMCOL\\brij.backed.developer.challenge.sln\\Elevator.Simulator\\Elevator.Simulator.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\peterm\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\peterm\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",

@@ -4,7 +4,8 @@ namespace Elevator.Engine.Definitions
 {
     public interface IFloorService
     {
-        void AddPeople(int count, Floor floor);
+        void UpdateFloor(int count, int floor);
         void CreateFloors(int floors);
+        
     }
 }

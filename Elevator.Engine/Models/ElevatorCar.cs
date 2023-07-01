@@ -15,28 +15,27 @@ namespace Elevator.Engine.Models
         public Floor CurrentFloor { get; set; }
 
         /// <summary>
-        /// Maximum weight expressed as number of people
+        /// Maximum weight an elevator can carry, expressed as number of people
         /// </summary>
-        public int MaximumCapacity { get;  set; }
+        public int MaximumWeight { get;  set; }
         public ElevatorState State { get; set; }
         public Direction Direction { get; set; }
         public int Number { get; set; }
+        public DoorState DoorState { get; set; }
 
         /// <summary>
-        /// 
+        /// maximumWeight expressed as number of people individual elevator can carry, which is uniform for all elevators
         /// </summary>
-        /// <param name="maximumCapacity"></param>
-        /// <param name="state"></param>
-        /// <param name="floor"></param>
-        /// <param name="numberOfPeople"></param>
-        public ElevatorCar(int maximumCapacity, ElevatorState state, int floor, int numberOfPeople)
+        /// <param name="maximumCapacity"></param>      
+        public ElevatorCar(int maximumCapacity)
         {
             // Assuming elevator default floor is 1
-            CurrentFloor.Number = floor;
-            State = state;
+            CurrentFloor = new Floor();
+            State = ElevatorState.Idle;//assuming elevator default state is idle
             Direction = Direction.Up;//Assume floor 1 is the first
-            NumberOfPeopleOnBoard = numberOfPeople;
-            MaximumCapacity = maximumCapacity;
+            NumberOfPeopleOnBoard = 0; //assuming elevator default number of people is 0
+            MaximumWeight = maximumCapacity;
+            DoorState = DoorState.Closed;
         }       
     }
 }

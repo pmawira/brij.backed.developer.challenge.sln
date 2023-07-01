@@ -129,11 +129,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Peter\\brij-backend-developer-challenge-solution\\Elevator.Simulator\\Elevator.Simulator.csproj",
+      "projectUniqueName": "D:\\CAMCOL\\brij.backed.developer.challenge.sln\\Elevator.Simulator\\Elevator.Simulator.csproj",
       "projectName": "Elevator.Simulator",
-      "projectPath": "D:\\Peter\\brij-backend-developer-challenge-solution\\Elevator.Simulator\\Elevator.Simulator.csproj",
+      "projectPath": "D:\\CAMCOL\\brij.backed.developer.challenge.sln\\Elevator.Simulator\\Elevator.Simulator.csproj",
       "packagesPath": "C:\\Users\\peterm\\.nuget\\packages\\",
-      "outputPath": "D:\\Peter\\brij-backend-developer-challenge-solution\\Elevator.Simulator\\obj\\",
+      "outputPath": "D:\\CAMCOL\\brij.backed.developer.challenge.sln\\Elevator.Simulator\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\DevExpress 20.2\\Components\\Offline Packages",
@@ -163,8 +163,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Peter\\brij-backend-developer-challenge-solution\\Elevator.Engine\\Elevator.Engine.csproj": {
-              "projectPath": "D:\\Peter\\brij-backend-developer-challenge-solution\\Elevator.Engine\\Elevator.Engine.csproj"
+            "D:\\CAMCOL\\brij.backed.developer.challenge.sln\\Elevator.Engine\\Elevator.Engine.csproj": {
+              "projectPath": "D:\\CAMCOL\\brij.backed.developer.challenge.sln\\Elevator.Engine\\Elevator.Engine.csproj"
             }
           }
         }

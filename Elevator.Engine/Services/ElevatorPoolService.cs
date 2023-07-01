@@ -1,4 +1,5 @@
-﻿using Elevator.Engine.Definitions;
+﻿using Elevator.Engine.Abstracts;
+using Elevator.Engine.Definitions;
 using Elevator.Engine.Enums;
 using Elevator.Engine.Models;
 using System;
@@ -12,109 +13,84 @@ namespace Elevator.Engine.Services
 {
     public class ElevatorPoolService : IElevatorPoolService
     {
-        private List<ElevatorCar> _availableElevators;
+        private List<ElevatorCar> _availableElevators = new List<ElevatorCar>();
 
-        public void UpdateElevatorState(ElevatorCar elevator)
-        {            //
-            var elevatorToUpdate = _availableElevators.FirstOrDefault(e => e.Number == elevator.Number);
-            if (elevatorToUpdate == null)
-            {
-                return;
-            }
+        private ElevatorCar? elevatorCar;
 
-            var index = _availableElevators.IndexOf(elevatorToUpdate);
-            _availableElevators[index] = elevator;
+        private readonly IElevatorPoolHelperService _helperService;
+        private readonly IFloorService _floorService;
+
+        public ElevatorPoolService(IElevatorPoolHelperService helperService, IFloorService floorService)
+        {
+            _helperService = helperService;
+            _floorService = floorService;
+
         }
-
-
-        public void CreateElevatorPool(int _numberOfElevators)
+        /// <summary>
+        /// Create elevator pool
+        /// </summary>
+        /// <param name="_numberOfElevators"></param>
+        /// <param name="_maximumCapacity"></param>
+        public void CreateElevatorPool(int _numberOfElevators, int _maximumCapacity)
         {
             var elevators = new List<ElevatorCar>();
 
             for (int i = 0; i < _numberOfElevators; i++)
             {
-                elevators.Add(new ElevatorCar(20, ElevatorState.Idle, 1, 0)
+                elevators.Add(new ElevatorCar(_maximumCapacity)
                 { Number = i + 1 });
             }
 
             _availableElevators = elevators;
+            return;
 
         }
-
-        private ElevatorCar GetNearestElevator(int requestedFloor, int numberOfPeopleWaiting)
+        public void CallElevator(int numberOfPeopleBoarding, int floor)
         {
-            // Get all active elevators
-            var elevators = _availableElevators.Where(e => e.State != ElevatorState.Faulty && e.MaximumCapacity > e.NumberOfPeopleOnBoard + numberOfPeopleWaiting).ToList();
-            //ToDo:
-            // Check if all the elevator are on the floor 1. if yes bring the first one
+            //add people on the floor
+            _floorService.UpdateFloor(numberOfPeopleBoarding, floor);
 
-          
-            //ToDO:
-            // check if they are all on the top most floor, if yes bring the any of them
-         
-
-            ElevatorCar nearestElevator = null; ;
-            int shortestDistance = int.MaxValue;
+            var nearestElevator = _helperService.GetNearestElevator(_availableElevators, floor);
 
             if (nearestElevator == null)
             {
-                Console.WriteLine("All elevators are currently busy. Please try again later.");
-                return null;
+                Console.WriteLine("All elevators are busy try again");
+                return;
+                
             }
-            //check for the nearest available elevator;
-            foreach (ElevatorCar elevator in elevators)
+            //Move elevator to the requested floor
+            _availableElevators = _helperService.MoveElevator(_availableElevators, floor, nearestElevator);
+
+
+            if (nearestElevator.NumberOfPeopleOnBoard + numberOfPeopleBoarding > nearestElevator.MaximumWeight)
             {
-                // check if there is any elevator at requestedFloor
-
-                if (elevator.CurrentFloor.Number == requestedFloor)
-                {
-                    nearestElevator = elevator;
-                    break;
-                }
-
-                var distance = Math.Abs(elevator.CurrentFloor.Number - requestedFloor);
-                if (distance < shortestDistance)
-                {
-                    nearestElevator = elevator;
-                    shortestDistance = distance;
-                }
-
-            }
-            return nearestElevator;
-        }
-        private void SendToFloor(int targetFloor, ElevatorCar elevator)
-        {
-            elevator.CurrentFloor.Number = targetFloor;
-
-            // Simulate the movement of the elevator
-
-            if (elevator.CurrentFloor.Number == targetFloor)
-            {
-                elevator.State = ElevatorState.Loading;
+                nearestElevator.NumberOfPeopleOnBoard = nearestElevator.MaximumWeight;
+                _floorService.UpdateFloor(floor, (nearestElevator.NumberOfPeopleOnBoard + numberOfPeopleBoarding) - nearestElevator.NumberOfPeopleOnBoard);
             }
 
-            if (targetFloor < elevator.CurrentFloor.Number)
-                elevator.Direction = Direction.Down;
-            else
-                elevator.Direction = Direction.Up;
-
-            elevator.State = ElevatorState.Moving;
-        }
-
-        public void AddPeople(int numberOfPeopleBoarding, int floor)
-        {
-            var elevator = GetNearestElevator(floor, numberOfPeopleBoarding);
-            SendToFloor(floor, elevator);
+            nearestElevator.NumberOfPeopleOnBoard += numberOfPeopleBoarding;
+            nearestElevator.CurrentFloor.Number = floor;
+            nearestElevator.DoorState = DoorState.Closed;
             
-            if (elevator.NumberOfPeopleOnBoard + numberOfPeopleBoarding > elevator.MaximumCapacity)
+
+            elevatorCar = nearestElevator;
+
+
+            Console.WriteLine($"{numberOfPeopleBoarding} people boarded the elevator {nearestElevator.Number}. Current number of people: {nearestElevator.NumberOfPeopleOnBoard}.");
+
+        }
+        /// <summary>
+        /// Move a loaded elevator to destination floor
+        /// </summary>
+        /// <param name="floor"></param>
+        public void MoveElevatorToDestination(int floor)
+        {
+            if(elevatorCar == null)
             {
-                Console.WriteLine("Elevator is at maximum capacity.");
                 return;
             }
 
-            elevator.NumberOfPeopleOnBoard += numberOfPeopleBoarding;
-            elevator.CurrentFloor.Number = floor;
-            Console.WriteLine($"{numberOfPeopleBoarding} people boarded the elevator {elevator.Number}. Current number of people: {elevator.NumberOfPeopleOnBoard}.");
+            _availableElevators = _helperService.MoveElevator(_availableElevators, floor, elevatorCar);
         }
         public void RemovePeople(int numberOfPeopleToRemove, int floor, int elevatorNumber)
         {

@@ -13,7 +13,6 @@ namespace Elevator.Engine.Models
         public Floor()
         {
             NumberOfPeopleWaiting = 0;
-            Number = 0;
         }
     }
 }

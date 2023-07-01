@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Elevator.Simulator", "Eleva
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Elevator.Engine", "Elevator.Engine\Elevator.Engine.csproj", "{641D1EC4-08A0-40D2-A6BC-05635934C59C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elevator.UnitTests", "Elevator.UnitTests\Elevator.UnitTests.csproj", "{1AA1B015-03F4-4612-B131-4256B9DCE052}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElevatorChallege.UnitTests", "Elevator.UnitTests\ElevatorChallege.UnitTests.csproj", "{1AA1B015-03F4-4612-B131-4256B9DCE052}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

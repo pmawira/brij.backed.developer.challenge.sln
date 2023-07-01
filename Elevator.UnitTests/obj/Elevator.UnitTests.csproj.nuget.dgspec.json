@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Peter\\brij-backend-developer-challenge-solution\\Elevator.UnitTests\\Elevator.UnitTests.csproj": {}
+    "D:\\CAMCOL\\brij.backed.developer.challenge.sln\\Elevator.UnitTests\\Elevator.UnitTests.csproj": {}
   },
   "projects": {
-    "D:\\Peter\\brij-backend-developer-challenge-solution\\Elevator.UnitTests\\Elevator.UnitTests.csproj": {
+    "D:\\CAMCOL\\brij.backed.developer.challenge.sln\\Elevator.UnitTests\\Elevator.UnitTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Peter\\brij-backend-developer-challenge-solution\\Elevator.UnitTests\\Elevator.UnitTests.csproj",
+        "projectUniqueName": "D:\\CAMCOL\\brij.backed.developer.challenge.sln\\Elevator.UnitTests\\Elevator.UnitTests.csproj",
         "projectName": "Elevator.UnitTests",
-        "projectPath": "D:\\Peter\\brij-backend-developer-challenge-solution\\Elevator.UnitTests\\Elevator.UnitTests.csproj",
+        "projectPath": "D:\\CAMCOL\\brij.backed.developer.challenge.sln\\Elevator.UnitTests\\Elevator.UnitTests.csproj",
         "packagesPath": "C:\\Users\\peterm\\.nuget\\packages\\",
-        "outputPath": "D:\\Peter\\brij-backend-developer-challenge-solution\\Elevator.UnitTests\\obj\\",
+        "outputPath": "D:\\CAMCOL\\brij.backed.developer.challenge.sln\\Elevator.UnitTests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\DevExpress 20.2\\Components\\Offline Packages",

@@ -4,12 +4,11 @@ namespace Elevator.Engine.Definitions
 {
     public interface IElevatorPoolService
     {
-        void CreateElevatorPool(int numberOfElevators);
+        void CreateElevatorPool(int numberOfElevators, int maximumCapacity);
 
-        void AddPeople(int numberOfPeopleBoarding, int floor);
-        void RemovePeople(int numberOfPeopleToRemove, int floor, int elevatorNumber);
-        
-        void UpdateElevatorState(ElevatorCar elevator); 
+        void CallElevator(int numberOfPeopleBoarding, int floor);
+        void MoveElevatorToDestination(int targetFloor);
+        void RemovePeople(int numberOfPeopleToRemove, int floor, int elevatorNumber);        
         void Logs();
 
     }
